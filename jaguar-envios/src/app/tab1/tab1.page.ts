@@ -3,6 +3,8 @@ import { ApiService } from '../api.service';
 import { LoadingController } from '@ionic/angular';
 import { ToastController } from '@ionic/angular';
 
+declare var document
+
 @Component({
   selector: 'app-tab1',
   templateUrl: 'tab1.page.html',
@@ -44,7 +46,10 @@ export class Tab1Page {
 
   public async enviarMailing() {
     let file: any = document.getElementById('arquivomailing').files[0]
-    if (!file) return
+    if (!file) {
+      this.presentToast('selecione um arquivo')
+      return
+    }
     await this.presentLoading()
     let result = await this.api.enviarMailing(file)
     this.presentToast(result.data)
@@ -54,6 +59,9 @@ export class Tab1Page {
   public disparar(): void {
     this.api.iniciarDisparos()
     this.presentToast("iniciando fila de disparos")
+    setTimeout(() => {
+      this.getCredito()
+    }, 10000)
   }
 
   private async getCredito() {

@@ -6,11 +6,15 @@ import axios, { AxiosStatic, AxiosInstance } from 'axios'
 })
 export class ApiService {
 
-  private baseUrl: string = 'http://localhost:8080'
+  //private baseUrl: string = 'http://localhost:8080'
+  private baseUrl: string = 'https://rocketenvios.tk:8080'
   private instance: AxiosInstance
 
   constructor() {
-    this.instance = axios.create({ baseURL: this.baseUrl })
+    this.instance = axios.create({
+      baseURL: this.baseUrl,
+      httpsAgent: false
+    })
   }
 
   public async atualizarToken(token: string) {
