@@ -6,4 +6,43 @@
   </ion-toolbar>
 </ion-header>
 
-<ion-content></ion-content>
+<ion-content>
+
+  <!-- Segments -->
+  <div>
+    <ion-segment color="royal" [(ngModel)]="segment">
+
+      <ion-segment-button value="enviados">
+        <ion-icon name="md-calendar"></ion-icon>
+        <ion-label>enviados</ion-label>
+      </ion-segment-button>
+
+      <ion-segment-button value="recebidos">
+        <ion-icon name="list"></ion-icon>
+        <ion-label>recebidos</ion-label>
+      </ion-segment-button>
+
+    </ion-segment>
+  </div>
+
+  <div [ngSwitch]="segment">
+    <ion-list *ngSwitchCase="'enviados'">
+
+      <ion-card *ngFor="let item of listEnvios">
+        <ion-card-header color="{{ item.status ? 'success' : 'danger' }}">
+          <ion-card-subtitle>mensagem para: {{ item.from }}</ion-card-subtitle>
+        </ion-card-header>
+        <ion-card-content>
+          {{ item.message }}
+        </ion-card-content>
+      </ion-card>
+    </ion-list>
+
+    <ion-list *ngSwitchCase="'recebidos'"></ion-list>
+  </div>
+
+
+
+
+
+</ion-content>

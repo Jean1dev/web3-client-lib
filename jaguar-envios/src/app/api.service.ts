@@ -18,26 +18,30 @@ export class ApiService {
   }
 
   public async atualizarToken(token: string) {
-    return await this.instance.post(`/api-wha-token-update`, { token })
+    return await this.instance.post(`/comunicacao/api-wha-token-update`, { token })
   }
 
   public async getToken() {
-    return await this.instance.get(`/token`)
+    return await this.instance.get(`/comunicacao/token`)
   }
 
   public async getCredit() {
-    return await this.instance.get(`/credit`)
+    return await this.instance.get(`/comunicacao/credit`)
   }
 
   public async enviarMailing(mailing) {
     let formData = new FormData()
     formData.append('file', mailing)
-    return await this.instance.post(`/integracao`,
+    return await this.instance.post(`/integracao/integracao`,
       formData)
   }
 
   public iniciarDisparos() {
-    this.instance.post(`/iniciar-fila-desconhecidos`)
+    this.instance.post(`/integracao/iniciar-fila-desconhecidos`)
+  }
+
+  public async getInfoIntegracao() {
+    return await this.instance.get(`/integracao/info-integracao`)
   }
 
 }
