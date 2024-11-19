@@ -15,7 +15,7 @@ interface SolanaV1Response {
 export async function genereateSolanaKeyPair(): Promise<SolanaV1Response> {
     try {
         const config: AxiosRequestConfig = {
-            method: 'get',
+            method: 'POST',
             url: `${baseUrl}/wallet/new-wallet`,
             headers: { 
                 'Content-Type': 'application/json',
@@ -28,7 +28,7 @@ export async function genereateSolanaKeyPair(): Promise<SolanaV1Response> {
           return {
             error: false,
             pubKey: response.data.publicKey,
-            privKey: response.data.privateKey
+            privKey: response.data.secretKey
           }
         }
 
