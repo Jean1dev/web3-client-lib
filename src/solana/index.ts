@@ -1,5 +1,3 @@
-import { genereateSolanaKeyPair } from "./v1/lib";
+import { genereateSolanaKeyPair, requestAirDrop } from "./v1/lib";
 
-export {
-    genereateSolanaKeyPair
-}
+export { genereateSolanaKeyPair, requestAirDrop };
