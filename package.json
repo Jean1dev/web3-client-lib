@@ -1,6 +1,6 @@
 {
   "name": "web3-client-lib",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "description": "a js-client for my web3 apps and dapps",
   "main": "index.js",
   "scripts": {
