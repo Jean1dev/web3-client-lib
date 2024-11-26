@@ -7,13 +7,16 @@
     "build": "tsc",
     "test": "jest",
     "coverage": "jest --coverage",
-    "debug-test-script": "npx jest test/solana/v1/lib.test.ts"
+    "debug-test-script": "npx jest test/solana/v1/lib.test.ts",
+    "lint:fix": "prettier */*.js \"*/**/*{.js,.ts}\" -w",
+    "lint": "prettier */*.js \"*/**/*{.js,.ts}\" --check"
   },
   "author": "@jeanlucafp",
   "license": "ISC",
   "devDependencies": {
     "@types/jest": "^29.5.14",
     "jest": "^29.7.0",
+    "prettier": "^3.4.0",
     "ts-jest": "^29.2.5",
     "ts-node": "^10.9.2",
     "typescript": "^5.6.3"
