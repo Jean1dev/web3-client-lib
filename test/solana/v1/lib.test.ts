@@ -1,4 +1,7 @@
-import { genereateSolanaKeyPair, requestAirDrop } from "../../../src/solana/index";
+import {
+  genereateSolanaKeyPair,
+  requestAirDrop,
+} from "../../../src/solana/index";
 
 describe("lib", () => {
   it("should generate a keypair", async () => {
@@ -11,9 +14,9 @@ describe("lib", () => {
 
   it("shoud be request a airdrop", async () => {
     const response = await requestAirDrop({
-      sols: 2
-    })
+      sols: 2,
+    });
 
-    expect(response.error).toBeTruthy()
-  })
+    expect(response.error).toBeTruthy();
+  });
 });
